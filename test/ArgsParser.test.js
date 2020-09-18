@@ -8,10 +8,6 @@ describe('ArgsParser', () => {
       const result = argsParser.parseCommandLineArgs([]);
       expect(result).to.eql({
         shouldWarn: false,
-        low: 0,
-        moderate: 0,
-        high: 0,
-        critical: 0,
         retry: 3
       });
     });
@@ -30,9 +26,6 @@ describe('ArgsParser', () => {
       expect(result).to.eql({
         shouldWarn: false,
         low: 3,
-        moderate: 0,
-        high: 0,
-        critical: 0,
         retry: 3
       });
     });
@@ -42,10 +35,6 @@ describe('ArgsParser', () => {
       const result = argsParser.parseCommandLineArgs(['--warn']);
       expect(result).to.eql({
         shouldWarn: true,
-        low: 0,
-        moderate: 0,
-        high: 0,
-        critical: 0,
         retry: 3
       });
     });
@@ -55,10 +44,6 @@ describe('ArgsParser', () => {
       const result = argsParser.parseCommandLineArgs(['--retry=5']);
       expect(result).to.eql({
         shouldWarn: false,
-        low: 0,
-        moderate: 0,
-        high: 0,
-        critical: 0,
         retry: 5
       });
     });
