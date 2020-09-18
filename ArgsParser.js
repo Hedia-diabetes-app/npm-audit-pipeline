@@ -4,15 +4,11 @@
  *
  */
 const ArgsParser = () => {
-  const vulnerabilityFlagRegex = /^--(low|moderate|high|critical|retry)=[0-9]+$/;
+  const vulnerabilityFlagRegex = /^--(low|moderate|high|critical|retry)(?:=[0-9]+)?$/;
 
   const defaultConfig = {
     shouldWarn: false,
-    retry: 3,
-    low: 0,
-    moderate: 0,
-    high: 0,
-    critical: 0
+    retry: 3
   };
 
   const isArgsValid = flagArg => {
@@ -27,7 +23,7 @@ const ArgsParser = () => {
     const [name, count] = val.split('=');
     return {
       name,
-      count: parseInt(count, 10)
+      count: count ? parseInt(count, 10) : 0
     };
   };
 
@@ -51,9 +47,7 @@ const ArgsParser = () => {
           ...prev
         };
 
-        if (conf[flag.name] || conf[flag.name] === 0) {
-          conf[flag.name] = flag.count;
-        }
+        conf[flag.name] = flag.count;
 
         return conf;
       }, defaultConfig);

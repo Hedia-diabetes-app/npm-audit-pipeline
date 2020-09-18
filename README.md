@@ -19,16 +19,19 @@ Then you can run as:
 $ npm run package-audit
 ```
 
-If required you can also specify how many errors are allowed to be passed through for each vulnerability level. By default all levels are set to **0**. For example:
+It will check through the specified levels by the given parameter (`low`/`moderate`/`high`/`critical`).
+You can specify how many errors are allowed to be passed through for each vulnerability level. 
+For example:
 ```bash
 $ npm-audit --low=4 --moderate=3 --high=2 --critical=1
 ```
- This means if there are 4 low level, 3 moderate, 2 high and 1 critical vulnerabilities when packages are checked then it will pass. If in a situation there are 5 low level vulnerabilities then it will fail because its greater than 4 specifed in the arguments
+ This means if there are 4 low level, 3 moderate, 2 high and 1 critical vulnerabilities when packages are checked then it will pass. If in a situation there are 5 low level vulnerabilities then it will fail because its greater than 4 specifed in the arguments.
+ If only the vulnerability level name argument passed, the count value will be set to **0** by default.
 
 ```bash
 $ npm-audit --shouldWarn 
 ```
- shouldWarn flag means the vulnerablities will be logged to stdout however the pipeline will successfully pass
+ shouldWarn flag means the vulnerabilities will be logged to stdout however the pipeline will successfully pass
  
  ```bash
 $ npm-audit --retry=10
