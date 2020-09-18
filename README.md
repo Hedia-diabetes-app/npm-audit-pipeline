@@ -19,7 +19,7 @@ Then you can run as:
 $ npm run package-audit
 ```
 
-If required you can also specify how many errors are allowed to be passed through for each vulnerability level. By default all levels are set to **0**. For example:
+You can specify how many errors are allowed to be passed through for each vulnerability level. For example:
 ```bash
 $ npm-audit --low=4 --moderate=3 --high=2 --critical=1
 ```
