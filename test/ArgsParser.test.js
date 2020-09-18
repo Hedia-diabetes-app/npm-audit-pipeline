@@ -48,7 +48,7 @@ describe('ArgsParser', () => {
       });
     });
 
-    it('if arg is has no count passed (=count), then value should be 0', () => {
+    it('if arg has no count value passed, it should by default be 0', () => {
       const argsParser = ArgsParser();
       const result = argsParser.parseCommandLineArgs(['--low']);
       expect(result).to.eql({
