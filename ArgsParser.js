@@ -4,7 +4,7 @@
  *
  */
 const ArgsParser = () => {
-  const vulnerabilityFlagRegex = /^--(low|moderate|high|critical|retry)=[0-9]+$/;
+  const vulnerabilityFlagRegex = /^--(low|moderate|high|critical|retry)(?:=[0-9]+)?$/;
 
   const defaultConfig = {
     shouldWarn: false,
@@ -23,7 +23,7 @@ const ArgsParser = () => {
     const [name, count] = val.split('=');
     return {
       name,
-      count: parseInt(count, 10)
+      count: count ? parseInt(count, 10) : 0
     };
   };
 

@@ -47,5 +47,15 @@ describe('ArgsParser', () => {
         retry: 5
       });
     });
+
+    it('if arg is has no count passed (=count), then value should be 0', () => {
+      const argsParser = ArgsParser();
+      const result = argsParser.parseCommandLineArgs(['--low']);
+      expect(result).to.eql({
+        shouldWarn: false,
+        low: 0,
+        retry: 3
+      });
+    });
   });
 });
