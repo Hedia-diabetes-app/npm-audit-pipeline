@@ -1,5 +1,5 @@
 {
-  "name": "npm-audit-pipeline",
+  "name": "@hedia/npm-audit-pipeline",
   "version": "0.5.0",
   "description": "Using npm audit in deployment pipelines",
   "main": "index.js",
@@ -23,7 +23,7 @@
     "package"
   ],
   "bin": {
-    "npm-audit": "./index.js"
+    "npm-audit": "index.js"
   },
   "repository": {
     "type": "git",
@@ -47,5 +47,8 @@
     "husky": "^4.2.5",
     "mocha": "^8.0.1",
     "prettier": "^2.0.4"
+  },
+  "directories": {
+    "test": "test"
   }
 }
